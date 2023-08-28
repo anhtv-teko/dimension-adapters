@@ -4,6 +4,7 @@ import fetchURL from "../../utils/fetchURL";
 import { DanogoDimensions, DanogoVolumes } from "./types";
 
 const DANOGO_GATEWAY_ENDPOINT = 'https://danogo-gateway.tekoapis.com/api/v1/defillama-dimensions';
+const DANOGO_START_TIMESTAMP = 1685404800 // 30/05/2023
 const CARDANO_COIN_ID = "coingecko:cardano";
 const ADA_DECIMAL = 6;
 
@@ -49,7 +50,7 @@ const adapter: SimpleAdapter = {
     adapter: {
         cardano: {
             fetch: fetchData,
-            start: async () => 0,
+            start: async () => DANOGO_START_TIMESTAMP,
             runAtCurrTime: false,
         }
     }
